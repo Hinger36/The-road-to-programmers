@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>flex-grammar</title>
+	<style>
+	body {
+		background-color: #333
+	}
+	.box {
+		display: flex;
+		flex-wrap: wrap;
+		background-color: #fafafa;
+		margin-bottom: 30px;
+	}
+	.box-1 {
+		display: flex;
+		flex-wrap: wrap;
+		background-color: #fafafa
+	}
+	.direction,.direction1,.direction2,.direction3,.direction4,.direction5,.direction6,
+	.direction-1,.direction-2,.direction-3,.direction-4,.direction-5,.direction-6
+	{
+		display: flex;
+		background-color: #42b983;
+		margin: 10px;	
+
+	}
+	/*flex-direction属性决定主轴的方向（即项目的排列方向）
+	.box {flex-direction: row | row-reverse | column | column-reverse;}	*/	
+		.direction {
+			height: 300px;
+			width: 400px;
+			flex-direction: column;		
+		}
+		.item {
+			flex: 1;
+			background-color: #fafafa;
+			margin: 5px;
+			
+		}
+		/*flex-wrap属性定义，如果一条轴线排不下，如何换行。*/
+		/*.box{flex-wrap: nowrap | wrap | wrap-reverse;}*/
+		.direction1 {
+			height: 300px;
+			width: 200px;
+			flex-wrap: wrap-reverse;	
+		}
+		.item1 {
+			flex: 1 1 30%;
+			background-color: #fafafa;
+			margin: 5px;
+		}
+		/*flex-flow属性是flex-direction属性和
+		flex-wrap属性的简写形式，默认值为row nowrap*/
+		/*.box{flex-flow: <flex-direction> || <flex-wrap>;}*/
+		.direction2 {
+			height: 300px;
+			width: 200px;
+			flex-flow: column wrap;	
+		}
+		.item2 {
+			flex: 1 1 30%;
+			background-color: #fafafa;
+			margin: 5px;
+		}
+		/*justify-content属性定义了项目在主轴上的对齐方式。*/
+		/*.box {
+			justify-content: flex-start | flex-end | center | space-between | space-around;
+		}*/
+		.direction3 {
+			height: 100px;
+			width: 500px;
+			justify-content: space-between;	
+		}
+		.item3 {
+			/*flex: 1;*/
+			width: 70px;
+			background-color: #fafafa;
+			margin: 5px;
+		}
+		/*align-items属性定义项目在交叉轴上如何对齐。*/
+		/*.box{align-items: flex-start | flex-end | center | baseline | stretch(默认);}*/
+		.direction4 {
+			height: 300px;
+			width: 400px;
+			align-items: center;
+		}
+		.item4 {
+			flex: 1;
+			background-color: #fafafa;
+			margin: 5px;
+		}
+		/*align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。*/
+		/*.box{align-content: flex-start | flex-end | center | space-between | space-around | stretch;}*/
+		.direction5 {
+			height: 300px;
+			width: 400px;
+			align-items: center;
+		}
+		.item5 {
+			flex: 1;
+			background-color: #fafafa;
+			margin: 5px;
+		}
+		/*align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。*/
+		/*.box{align-content: flex-start | flex-end | center | space-between | space-around | stretch;}*/
+		.direction6 {
+			height: 330px;
+			width: 350px;
+			flex-wrap: wrap;
+			align-content: space-between ;
+			
+		}
+		.item6 {
+			flex: 0 0 20%;
+			height: 100px;
+			background-color: #fafafa;
+			margin: 5px;
+		}
+	</style>
+	<style>
+	/*order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。*/
+		/*.item {order: <integer>;}*/
+		.direction-1 {
+			height: 130px;
+			width: 400px;
+		}
+		.item-1 {
+			flex: 1;
+			background-color: #fafafa;
+			margin: 5px;
+			order: 2;
+		}
+		.num1 {
+			flex: 3;
+			order: 3;
+		}
+		.num2 {
+			flex: 2;
+			order: 4;
+		}
+		.num3 {
+			flex: 2;
+			order: 1;
+		}
+		/*flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。*/
+		/*.item{flex-grow: <number>; // default 0 }*/
+		.direction-2 {
+			height: 130px;
+			width: 400px;
+		}
+		.item-2 {
+			flex: 1;
+			background-color: #fafafa;
+			margin: 5px;
+		}
+		.grow {
+			flex-grow: 3;
+		}
+		.grow1 {
+			flex-grow: 2;
+		}
+		/*flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。*/
+		/*.irem{flex-shrink: <number>;  //default 1 }*/
+		.direction-3 {
+			height: 130px;
+			width: 450px;
+		}
+		.item-3 {
+			flex: 0 1 100px;
+			background-color: #fafafa;
+			margin: 5px;
+		}
+		.shrink {
+			flex-shrink: 0;
+		}
+		.shrink1 {
+			flex-shrink: 3;
+		}
+		/*flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。
+		浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。*/
+		/*.item{flex-basis: <length> | auto; // default auto }*/
+		.direction-4 {
+			height: 130px;
+			width: 400px;
+		}
+		.item-4 {
+			flex: 0 0;
+			background-color: #fafafa;
+			margin: 5px;
+			flex-basis: 80px;
+		}
+		/*align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。*/
+		/*.item{align-self: auto | flex-start | flex-end | center | baseline | stretch;}*/
+		.direction-5 {
+			height: 300px;
+			width: 400px;
+			align-items: center;
+		}
+		.item-5 {
+			flex: 1;
+			background-color: #fafafa;
+			margin: 5px;
+		}
+		.self {
+			align-self: flex-end;
+		}
+	</style>
+</head>
+<body>
+<div class="box">
+	<!-- flex-direction属性 -->
+	<div class="direction">
+		<div class="item"><p>flex-direction属性</p></div>
+		<div class="item"><p>2</p></div>
+		<div class="item"><p>3</p></div>
+		<div class="item"><p>4</p></div>
+	</div>
+	<!-- flex-wrap属性 -->
+	<div class="direction1">
+		<div class="item1"><p>flex-wrap属性</p></div>
+		<div class="item1"><p>2</p></div>
+		<div class="item1"><p>3</p></div>
+		<div class="item1"><p>4</p></div>
+	</div>
+	<!-- flex-flow属性 -->
+	<div class="direction2">
+		<div class="item2"><p>flex-flow属性</p></div>
+		<div class="item2"><p>2</p></div>
+		<div class="item2"><p>3</p></div>
+		<div class="item2"><p>4</p></div>
+	</div>
+	<!-- align-content属性 -->
+	<div class="direction6">
+		<div class="item6"><p>align-content属性</p></div>
+		<div class="item6"><p>2</p></div>
+		<div class="item6"><p>3</p></div>
+		<div class="item6"><p>4</p></div>
+		<div class="item6"><p>2</p></div>
+		<div class="item6"><p>3</p></div>
+		<div class="item6"><p>4</p></div>
+	</div>
+	<!-- justify-content属性 -->
+	<div class="direction3">
+		<div class="item3"><p>justify-content属性</p></div>
+		<div class="item3"><p>2</p></div>
+		<div class="item3"><p>3</p></div>
+		<div class="item3"><p>4</p></div>
+	</div>
+	<!-- align-items属性 -->
+	<div class="direction4">
+		<div class="item4" style="height:150px;line-height:50px;"><p>align-items属性</p></div>
+		<div class="item4" style="height:100px;"><p>2</p></div>
+		<div class="item4"><p>3</p></div>
+		<div class="item4" style="height:200px;"><p>4</p></div>
+	</div>
+</div>
+
+<div class="box-1">
+	<!-- order属性 -->
+	<div class="direction-1">
+		<div class="item-1"><p>order属性</p></div>
+		<div class="item-1 num1"><p>2</p></div>
+		<div class="item-1 num2"><p>3</p></div>
+		<div class="item-1 num3"><p>4</p></div>
+		<div class="item-1"><p>5</p></div>
+		<div class="item-1"><p>6</p></div>
+	</div>
+	<!-- flex-grow属性 -->
+	<<div class="direction-2">
+		<div class="item-2 grow"><p>flex-grow属性</p></div>
+		<div class="item-2 grow1"><p>2</p></div>
+		<div class="item-2 "><p>3</p></div>
+		<div class="item-2 grow1"><p>4</p></div>
+	</div>
+	<!-- flex-shrink属性 -->
+	<div class="direction-3">
+		<div class="item-3 shrink"><p>flex-shrink</p></div>
+		<div class="item-3 "><p>空间不足</p></div>
+		<div class="item-3 shrink1"><p>3</p></div>
+		<div class="item-3 "><p>4</p></div>
+		<div class="item-3 "><p>5</p></div>
+		<div class="item-3 shrink1"><p>6</p></div>
+	</div>
+	<!-- flex-basis属性 -->
+	<div class="direction-4">
+		<div class="item-4 "><p>flex-basis</p></div>
+		<div class="item-4"><p>2</p></div>
+		<div class="item-4 "><p>3</p></div>
+		<div class="item-4 "><p>4</p></div>
+	</div>
+	<!-- flex属性 
+	flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。
+	.item {
+	  flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]
+	}
+	该属性有两个快捷值：auto (1 1 auto) 和 none (0 0 auto)。
+	建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。-->
+
+
+	<!-- align-self属性 -->
+	<div class="direction-5">
+		<div class="item-5" style="height:150px;line-height:50px;"><p>align-self属性</p></div>
+		<div class="item-5" style="height:100px;"><p>2</p></div>
+		<div class="item-5 self"><p>self</p></div>
+		<div class="item-5" style="height:200px;"><p>4</p></div>
+	</div>
+	
+</div>
+</body>
+</html>

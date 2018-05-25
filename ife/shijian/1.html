@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		input {
+			border: 1px solid rgba(0,0,0,0.8);
+			text-align: right;
+			font-size: 17px;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<!-- <div style="width:100px;height:100px;background-color: red;position: absolute;left: 0;top: 0;">
+	</div> -->
+	minutes:<input type="text" value="0" >
+	seconds:<input type="text" value="0" >
+	<script>
+	//var div = document.getElementsByTagName('div')[0];
+	// var disX,
+	// 	disY;
+	// div.onmousedown = function (e) {
+	// 	disX = e.pageX - parseInt(div.style.left);
+	// 	disY = e.pageY - parseInt(div.style.top);
+	// 	document.onmousemove = function (e) {
+	// 		var event = e || window.event;
+	// 		//console.log(e.pageX + '  ' + e.pageY);
+	// 		div.style.left = e.pageX - disX + 'px';
+	// 		div.style.top = e.pageY - disY + 'px';
+	// 	}
+	// 	document.onmouseup = function () {
+	// 		document.onmousemove = null;
+	// 	}
+
+	// }
+
+	// div.onclick = function (e) {
+	// 	console.log(e);
+	// 	if (e.button === 0) {
+	// 		console.log('left');
+	// 	} else if (e.button === 1) {
+	// 		console.log('中');
+	// 	} else if (e.button === 2) {
+	// 		console.log('right');
+	// 	}
+	// }
+	// 
+	// document.onkeypress = function (e) {
+	// 	console.log(String.fromCharCode(e.charCode));
+	// }
+	// document.onkeydown = function (e) {
+	// 	console.log(e);
+	// }
+	// document.onkeyup = function (e) {
+	// 	console.log(e);
+	// }
+	// var input = document.getElementsByTagName('input')[0];
+	// input.onfocus = function () {
+	// 	if (this.value === '请输入用户名') {
+	// 		this.value = '';
+	// 	}
+	// }
+	// input.onblur = function () {
+	// 	if (this.value === '') {
+	// 		this.value = '请输入用户名';
+	// 	}
+		
+	// }
+	// 
+	// var fristTime = new Date().getTime();
+	// for (var i = 0; i < 10000000000; i++) {
+
+	// }
+	// var date = new Date();
+
+	// var lastTime = new Date().getTime();
+	// console.log(lastTime - fristTime);
+
+
+	// function nowTime() {
+	// 	// 年月日时分秒
+	// 	var date = new Date();
+	// 	var year = date.getFullYear();
+	// 	var month = date.getMonth() + 1;
+	// 	var day = date.getDate();
+	// 	var Hours = date.getHours();
+	// 	var min = date.getMinutes();
+	// 	var sec = date.getSeconds();
+	// 	var week = date.getDay();
+	// 	var arr = ['日', '一', '二', '三', '四', '五', '六'];
+	// 	if (week === 0) {
+	// 		week = '星期日';
+	// 	} else {
+	// 		week = '星期' + arr[week];
+	// 	}
+	// 	console.log(year + '年' + month + '月' + day + '日' + Hours + '时'+ min + '分' + sec + '秒' + week) ;
+	// }
+	// var i = 0;
+	// var timer = setInterval(function () {
+	// 	console.log(i++);
+	// 	if(i > 10 ) {
+	// 		clearInterval(timer);
+	// 	}
+	// },1000);
+
+	// var timer = setTimeout(function () {
+	// 	console.log('爸爸');
+	// },1000)
+	// var timer = document.getElementsByTagName('input');
+	// var count = 0;
+	// var i = 0;
+	
+	
+	// setInterval(function () {
+	// 	timer[1].value = count++;
+	// 	if (count == 60) {
+	// 		count = 0;
+	// 		timer[0].value = ++i;
+	// 	}
+	// },1000);
+	
+	//var reg = new RegExp();
+	// var reg = /-(\w)/g;
+	// var str = 'the-first-name'
+	// console.log(str.match(reg));
+	// console.log(str.replace(reg, function ($, $1) {
+	// 	return $1.toUpperCase();
+	// }));
+	//console.log(reg.exec(str));
+	//
+	// var reg = /a(?!b)/g;
+	// var str ='abaaa';
+	// console.log(str.match(reg));
+
+// 	var num = 'ada5464ds56000';
+// 	var reg = /[A-Za-z]\w{7,9}/g;
+// 	//console.log(num.replace(reg, '.'));
+// 	console.log(num.match(reg));
+// 
+// 程序结构，用于等待和发送消息和事件
+
+// var items =[1, 2, 3, 4, 5, 6];
+// var results = [];
+
+// function async(arg, callbacK) {
+// 	console.log('参数为' + arg + ', 1秒后返回结果');
+// 	setTimeout(function () {callbacK(arg*2)}, 1000)
+	
+// }
+// function final(value) {
+// 	console.log('完成：', value);
+// }
+//串行执行
+// function series(item) {
+// 	if (item) {
+// 		async(item, function (result) {
+// 			results.push(result);
+// 			return series(items.shift());
+// 		});
+// 	} else {
+// 		return final(results[results.length-1]);
+// 	}
+// }
+// series(items.shift());
+// 
+// 并行执行
+// items.forEach(function (item) {
+// 	async(item, function (result) {
+// 		results.push(result);
+// 		if (results.length === items.length) {
+// 			final(results[results.length - 1]);
+// 		}
+// 	})
+// })	;
+// 
+var items = [1, 2, 3, 4, 5, 6];
+var results = [];
+var running = 0;
+var limit = 4;
+
+function async(arg, callback) {
+	console.log('参数为 ' + arg +' , 1秒后返回结果');
+	setTimeout(function () {callback(arg*2);}, 1000);
+}
+function final(value) {
+	console.log('完成：', value);
+}
+function launcher() {
+	while(running < limit && items.length > 0) {
+		var item = items.shift();
+		async(item, function (result) {
+			results.push(result);
+			running--;
+			if (items.length > 0) {
+				launcher();
+			} else if (running === 0) {
+				final(results[results.length - 1]);
+			}
+		});
+		running++;
+	}
+}
+launcher();
+	</script>
+</body>
+</html>

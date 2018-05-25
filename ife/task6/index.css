@@ -1,0 +1,19 @@
+#input {
+	width: 200px;
+	height: 30px;
+}
+
+#num li {
+	padding: 5px 8px;
+	background-color: red;
+	display: inline-block;
+	cursor: pointer;
+	margin-right: 10px;
+	width: 30px;
+	text-align: center;
+}
+ul {
+	display: flex;
+	align-items: flex-end;
+	height: 250px;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		 .flex {
+		 	display: flex;
+		 	height: 300px;
+		 	padding: 15px;
+		 	background-color: #f40;
+		 	/*flex-direction: column-reverse;*/
+		 	flex-wrap: wrap;
+		 }
+		 .item {
+		 	flex: 0 0 30%;
+		 	background-color: #f08bc3;
+		 	margin: 5px;
+		 	
+		 	
+		 }
+		 .flex-2 {
+		 	flex: 0 0 30%;
+		 /*	flex-shrink: 1;
+		 	flex-basis: 0%;*/
+		 }
+	</style>
+</head>
+<body>
+	<div class="flex">
+		<div class="item">1</div>
+		<div class="item flex-2">2</div>
+		<div class="item">3</div>
+		<div class="item">4</div>
+		<div class="item">4</div>
+	</div>
+	
+</body>
+</html>
