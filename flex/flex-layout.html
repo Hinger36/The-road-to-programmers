@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>flex-layout</title>
+	<style>
+		* {
+			margin: 0;
+			border: 0;
+			box-sizing: border-box;
+		}
+		body {
+			background-color: #fafafa;
+		}
+		.grid {
+			background-color: #42b983;
+			display: flex;
+			flex-wrap: wrap;
+			height: 400px;
+			width: 600px;
+		}
+		.grid-cell {
+			background-color: #f0f0f0;
+			margin: 5px;
+			flex: 0 0 30%;
+		}
+		.u-full	{
+			flex: 0 0 90%;
+		}
+		.u-fot {
+			flex:	0 0 40%;
+		}
+
+		.body {
+			display: flex;
+			flex-direction: column;
+			height: 400px;
+			width: 600px;
+			background-color: #42b983;
+			font-size: 1em;
+		}
+		header, footer {
+			flex: 1;
+			background-color: #f0f0f0;
+			margin: 5px;
+		}
+		.HolyGrail-body {
+			display: flex;
+			flex: 2;
+		}
+		.HolyGrail-content {
+			flex: 1;
+			background-color: #f0f0f0;
+			margin: 5px;
+			text-align: center;
+			
+		}
+		.HolyGrail-nav, .HolyGrail-ads {
+			flex: 0 0 5em;
+			margin: 5px;
+			background-color: #f0f0f0;
+		}
+		.HolyGrail-nav {
+			order: -1;
+		}
+		@media (max-width: 768px) {
+			.HolyGrail-body {
+				flex-direction: column;
+				flex: 1;
+			}
+			.HolyGrail-nav,
+			.HolyGrail-ads,
+			.HolyGrail-content {
+				flex: auto;
+			}
+		}
+
+		.InputAddOn {
+			display: flex;
+			height: 50px;
+			width: 450px;
+			background-color: #42b983;
+		}
+		/* .InputAddOn-item {
+			flex: 1;
+
+		} */
+		.InputAddOn-field {
+			flex: 1;
+		}
+
+		.Media {
+			display: flex;
+			height: 200px;
+			width: 300px;
+		}
+		.Media-figure {
+			margin-right: 1em;
+			box-sizing: content-box;
+		}
+		.Media-body	{
+			flex: 1;
+		}
+
+		.Site {
+			display: flex;
+			flex-direction: column;
+			min-height: 100vh;
+			background-color: #42b983;
+		}
+		.Site-content {
+			flex: 1;
+			background-color: aqua;
+		}
+
+		.wrap {
+			display: flex;
+			background-color: #42b983;
+			height: 400px;
+			width: 350px;
+			flex-flow: row wrap;
+			align-content: flex-start
+		}
+		.box {
+			flex: 0 0 25%;
+			height: 100px;
+			background-color: bisque;
+			border: 2px solid #333;
+		}
+	</style>
+</head>
+<body>
+	<span>网格布局-平均分布</span> 
+	<div class="grid">
+		<div class="grid-cell">1</div>
+		<div class="grid-cell">2</div>
+		<div class="grid-cell">3</div>
+		<div class="grid-cell">4</div>
+		<div class="grid-cell">5</div>
+		<div class="grid-cell">6</div>
+	</div>
+	<span>百分比布局</span> 
+	<div class="grid">
+		<div class="grid-cell u-full">1</div>
+		<div class="grid-cell">2</div>
+		<div class="grid-cell u-fot">3</div>
+		<div class="grid-cell">4</div>
+		<div class="grid-cell">5</div>
+		<div class="grid-cell">6</div>
+	</div>
+	<span>圣杯布局</span> 
+	<div class="body">
+	
+		<header>header</header>
+		<div class="HolyGrail-body">
+			<main class="HolyGrail-content">content</main>
+			<nav class="HolyGrail-nav">nav</nav>
+			<aside class="HolyGrail-ads">ads</aside>
+		</div>
+		<footer>footer</footer>
+	</div>
+
+	<span>输入框的布局</span>
+	<div class="InputAddOn">
+		<span class="InputAddOn-item">item1</span>
+		<input type="text" class="InputAddOn-field">
+		<button class="InputAddOn-item">item2</button>
+	</div>
+
+	<span>悬挂式布局</span>
+	<div class="Media">
+		<img src="" alt="" class="Media-figure" style="width:50px;height:50px;background-color:#ccc;">
+		<p class="Media-body">悬挂式布局悬挂式布局悬挂式布局悬挂式布局悬挂式布局<br>悬挂式布局悬挂式布局悬挂式布局</p>
+	</div>
+
+	<span>固定的底栏</span>
+	<div class="Site">
+		<header>...</header>
+		<main class="Site-content">...</main>
+		<footer>...</footer>
+	</div>
+
+	<span>流式布局</span> 
+	<div class="wrap">
+		<div class="box">1</div>
+		<div class="box">2</div>
+		<div class="box">3</div>
+		<div class="box">4</div>
+		<div class="box">5</div>
+		<div class="box">6</div>
+		<div class="box">7</div>
+		<div class="box">8</div>
+		<div class="box">9</div>
+	</div>
+</body>
+</html>
