@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<title>PopView</title>  
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>   -->
+   	<style>
+   		/*弹出菜单*/  
+	#popView{  
+	    /*左侧弹出窗口的长宽、圆角、背景颜色*/  
+	    height: 400px;  
+	    width: 400px;  
+	    border-radius: 10px;  
+	    background-color: #7AC5CD;  
+	  
+	  
+	    /*布局排版*/  
+	    position:absolute;  
+	    z-index:2;  
+	    left:-390px;  
+	  
+	    /*字体设置*/  
+	    text-align: center;  
+	    color: #FFFFFF;  
+	}     
+   	</style>
+</head>
+<body>
+	<div id="popView"></div>
+	<script>
+	// $(document).ready(function(){  
+	//     var isHiden = true; /*控制切换菜单*/  
+	//     $('#popView').click(function(){  
+	//         if(isHiden){  
+	//             $('#popView').animate({left:'+=380px'});//菜单块向右移动  
+	//         }else{  
+	//             $('#popView').animate({left:'-=380px'}); //菜单块向左移动  
+	//         }  
+	//         isHiden = !isHiden;  
+	//     });  
+	// });  
+
+	// (function () {
+	// 	let isHiden = true;
+	// 	let timer = 0;
+	// 	let pop = document.getElementById('popView');
+	// 	pop.addEventListener('click', function () {
+	// 		let left = 0;
+	// 		if (isHiden) {
+	// 			left = -390;
+	// 			console.log(isHiden)
+	// 			timer = setInterval(function () {
+	// 				if (left === 0) {
+	// 					clearInterval(timer);
+	// 					return;
+	// 				}
+	// 				left += 30; 
+	// 				pop.style.left = left + 'px';
+					
+	// 			}, 20); 
+	// 		} else {
+	// 			timer = setInterval(function () {
+	// 				if (left === -390) {
+	// 					clearInterval(timer);
+	// 					return;
+	// 				}
+	// 				left -= 30; 
+	// 				pop.style.left = left + 'px';
+	// 			}, 20);
+	// 		}
+	// 		isHiden = !isHiden;
+	// 	}, false);
+	// })()
+
+	(function () {
+		let isHiden = true;
+		let timer = 0;
+		let pop = document.getElementById('popView');
+		pop.addEventListener('click', function () {
+			if (isHiden) {
+				pop.style.left = '0';
+				pop.style.transition = '1s'
+				
+			} else {
+				pop.style.left = '-390px';
+				pop.style.transition = '1s'
+			}
+			isHiden = !isHiden;
+		}, false);
+	})()
+	</script>
+	<script type="text/javascript" color="175,47,47" opacity='0.7' zIndex="-2" count="100" src="./canvas-nest.js"></script>
+   
+</body>
+</html>
