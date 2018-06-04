@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>component</title>
+</head>
+<body>
+  <div id="app">
+    <div v-bind:style="{fontSize: postFontSize + 'em' }">
+      <blog-post
+        v-for="post in posts"
+        v-bind:post="post"
+        v-bind:key="post.id"
+        v-on:enlarge-text="onEnlargeText">
+      </blog-post>
+    </div>
+   
+  </div>
+  <div id="app-1">
+    <p>{{ searchText }}</p>
+    <custom-input v-model="searchText"></custom-input>
+
+    <alert-box>Something bad happened.</alert-box>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    Vue.component('blog-post', {
+      props: ['post'],
+      template: `<div class="blog-post">
+                  <h3>{{ post.title }}</h3>
+                  <button v-on:click="$emit('enlarge-text', 0.1)">Enlarge text</button>
+                  <div v-html="post.content"></div>
+                </div>`
+    });
+    new Vue({
+      el: '#app',
+      data: {
+        posts: [
+          {id: 0, title: '百年孤独', content: '芭啦芭啦樱之花'},
+          {id: 1, title: '老人与海', content: '芭啦芭啦樱之花'},
+          {id: 2, title: '丰乳肥臀', content: '芭啦芭啦樱之花'}
+        ],
+        postFontSize: 1
+      },
+      methods: {
+        onEnlargeText: function (enlarge) {
+          this.postFontSize += enlarge;
+        }
+      }
+    })
+
+    // 在组件上使用v-model
+    Vue.component('custom-input', {
+      props: ['value'],
+      template: `
+        <input
+          v-bind:value="value"
+          v-on:input="$emit('input', $event.target.value)"
+          >    `
+    });
+    Vue.component('alert-box', {
+      template: `
+        <div class="demo-alert-box">
+          <strong>Error!</strong>
+          <slot></slot>
+        </div>
+      `
+    })
+    const app1 = new Vue({
+      el: '#app-1',
+      data: {
+        searchText: ''
+      }
+    })
+  </script>
+</body>
+</html>
